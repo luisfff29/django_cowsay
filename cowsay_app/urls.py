@@ -1,8 +1,8 @@
 from django.urls import path
-from django_app import views
+from cowsay_app import views
 
 
 urlpatterns = [
     path('', views.index, name='homepage'),
-    path('history/', views.history)
+    path('history/', views.history, name='history')
 ]
