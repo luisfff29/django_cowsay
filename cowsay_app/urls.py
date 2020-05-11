@@ -3,6 +3,6 @@ from django_app import views
 
 
 urlpatterns = [
-    path('', views.index),
+    path('', views.index, name='homepage'),
     path('history/', views.history)
 ]
