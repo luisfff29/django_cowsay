@@ -12,6 +12,10 @@
     <a href="{% url 'history' %}">Most Recent</a>
     {% block body_block %}
     <p>This is index page</p>
+    <form action="" method='post'>
+      {{form}}
+      <input type="submit" value='Submit'>
+    </form>
     {% endblock %}
   </body>
 
