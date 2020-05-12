@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from cowsay_app.forms import TextInput
 from cowsay_app.models import Main
+import subprocess
 
 
 # Create your views here.
@@ -10,7 +11,9 @@ def index(request):
         if form.is_valid():
             data = form.cleaned_data
             Main.objects.create(text=data['text'])
-        return render(request, 'index.html', {'form': form})
+            result = subprocess.run(
+                ['cowsay'] + data['text'].split(), capture_output=True).stdout.decode()
+        return render(request, 'index.html', {'form': form, 'result': result})
 
     form = TextInput()
 
