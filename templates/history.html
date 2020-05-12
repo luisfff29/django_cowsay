@@ -2,4 +2,7 @@
 {% extends 'index.html' %}
 {% block body_block %}
 <p>This is the history page</p>
+{% for x in data %}
+<pre>{{ x.img }}</pre>
+{% endfor %}
 {% endblock %}

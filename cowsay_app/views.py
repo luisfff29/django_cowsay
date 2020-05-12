@@ -10,9 +10,10 @@ def index(request):
         form = TextInput(request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            Main.objects.create(text=data['text'])
+            form = TextInput()
             result = subprocess.run(
                 ['cowsay'] + data['text'].split(), capture_output=True).stdout.decode()
+            Main.objects.create(text=data['text'], img=result)
         return render(request, 'index.html', {'form': form, 'result': result})
 
     form = TextInput()
@@ -21,4 +22,5 @@ def index(request):
 
 
 def history(request):
-    return render(request, 'history.html')
+    data = Main.objects.order_by('-id')[:10]
+    return render(request, 'history.html', {'data': data})
