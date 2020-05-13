@@ -11,8 +11,12 @@ def index(request):
         if form.is_valid():
             data = form.cleaned_data
             form = TextInput()
-            result = subprocess.run(
-                ['cowsay'] + data['text'].split(), capture_output=True).stdout.decode()
+            if data['choose_animal'] == '-'*9:
+                result = subprocess.run(
+                    ['cowsay'] + data['text'].split(), capture_output=True).stdout.decode()
+            else:
+                result = subprocess.run(
+                    ['cowsay'] + ['-f'] + [data['choose_animal']] + data['text'].split(), capture_output=True).stdout.decode()
             Main.objects.create(text=data['text'], img=result)
         return render(request, 'index.html', {'form': form, 'result': result})
 
