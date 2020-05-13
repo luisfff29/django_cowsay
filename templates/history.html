@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% extends 'index.html' %}
 {% block body_block %}
+<p class="lead text-muted">List of the 10 most recent strings submitted </p>
 {% for x in data %}
 <pre>{{ x.img }}</pre>
 {% endfor %}

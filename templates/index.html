@@ -11,21 +11,23 @@
 
   <body>
     <div class="container">
-      <nav class="nav nav-pills nav-justified">
+      <nav class="nav nav-pills nav-justified alert-dark">
         <a href="{% url 'homepage' %}" class="nav-item nav-link btn-outline-dark">Home</a>
         <a href="{% url 'history' %}" class="nav-item nav-link btn-outline-dark">Most Recent</a>
       </nav>
       {% block body_block %}
-      {% if result %}
-      <pre>{{ result }}</pre>
-      {% endif %}
+      <h1 class='text-center my-3'>Cowsay</h1>
+      <p class="lead text-muted">'cowsay' is a program that generates ASCII pictures of a cow with a message. It
+        can also generate pictures using pre-made images of other animals, such as Tux the Penguin, the Linux mascot.
+        It is written in Perl. </p>
       <form action="" method='post'>
         {% csrf_token %}
         {{form.as_p}}
-        <br />
-        <br />
-        <input type="submit" value='Submit'>
+        <input type="submit" class='btn-primary' value='Submit'>
       </form>
+      {% if result %}
+      <pre>{{ result }}</pre>
+      {% endif %}
       {% endblock %}
     </div>
   </body>
