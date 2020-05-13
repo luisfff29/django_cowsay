@@ -24,7 +24,7 @@ Sample usage: `cowsay "Hello, world!"`
                 ||     ||
 </pre>
 
-Feel free to choose diferent animals from the list provided such as Tux The Penguin (the Linux mascot).
+It can also generate pictures using pre-made images of other animals, such as Tux the Penguin, the Linux mascot.
 
 <pre>
  ______________ 
@@ -40,3 +40,7 @@ Feel free to choose diferent animals from the list provided such as Tux The Peng
     /'\_   _/`\
     \___)=(___/
 </pre>
+
+## License / Author
+
+Tony Monroe (tony@nog.net), with suggestions from Shannon Appel (appel@CSUA.Berkeley.EDU) and contributions from Anthony Polito (aspolito@CSUA.Berkeley.EDU).
