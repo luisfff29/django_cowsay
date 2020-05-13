@@ -4,24 +4,30 @@
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+      integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     <title>MOO</title>
   </head>
 
   <body>
-    <a href="{% url 'homepage' %}">Home</a>
-    <a href="{% url 'history' %}">Most Recent</a>
-    {% block body_block %}
-    {% if result %}
-    <pre>{{ result }}</pre>
-    {% endif %}
-    <form action="" method='post'>
-      {% csrf_token %}
-      {{form.as_p}}
-      <br />
-      <br />
-      <input type="submit" value='Submit'>
-    </form>
-    {% endblock %}
+    <div class="container">
+      <nav class="nav nav-pills nav-justified">
+        <a href="{% url 'homepage' %}" class="nav-item nav-link btn-outline-dark">Home</a>
+        <a href="{% url 'history' %}" class="nav-item nav-link btn-outline-dark">Most Recent</a>
+      </nav>
+      {% block body_block %}
+      {% if result %}
+      <pre>{{ result }}</pre>
+      {% endif %}
+      <form action="" method='post'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <br />
+        <br />
+        <input type="submit" value='Submit'>
+      </form>
+      {% endblock %}
+    </div>
   </body>
 
 </html>
