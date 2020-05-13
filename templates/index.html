@@ -11,7 +11,6 @@
     <a href="{% url 'homepage' %}">Home</a>
     <a href="{% url 'history' %}">Most Recent</a>
     {% block body_block %}
-    <p>This is index page</p>
     {% if result %}
     <pre>{{ result }}</pre>
     {% endif %}

@@ -1,10 +1,8 @@
 from django import forms
-import subprocess
+from cowsay_app.utils import list_of_animals
 
 
 class TextInput(forms.Form):
-    animals = subprocess.run(
-        ['cowsay', '-l'], capture_output=True).stdout.decode().split()[4:]
     choose_animal = forms.ChoiceField(
-        choices=((x, x) for x in animals), initial='default')
+        choices=list_of_animals(), initial='default')
     text = forms.CharField(widget=forms.TextInput())

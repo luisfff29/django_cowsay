@@ -1,13 +1,11 @@
 from django.db import models
-import subprocess
+from cowsay_app.utils import list_of_animals
 
 
 # Create your models here.
 class Main(models.Model):
-    animals = subprocess.run(
-        ['cowsay', '-l'], capture_output=True).stdout.decode().split()[4:]
     choose_animal = models.CharField(
-        max_length=100, choices=((x, x) for x in animals))
+        max_length=100, choices=list_of_animals())
     text = models.CharField(max_length=100)
     img = models.TextField()
 
