@@ -16,9 +16,9 @@
         <a href="{% url 'history' %}" class="nav-item nav-link btn-outline-dark">Most Recent</a>
       </nav>
       {% block body_block %}
-      <p class="lead text-muted">'cowsay' is a program that generates ASCII pictures of a cow with a message. It
-        can also generate pictures using pre-made images of other animals, such as Tux the Penguin, the Linux mascot.
-        It is written in Perl. </p>
+      <p class="lead text-muted">Cowsay generates an ASCII picture of a cow saying something provided by the user. If
+        run with no arguments, it accepts standard input, word-wraps the message given at about 40 columns, and prints
+        the cow saying the given message on standard output. </p>
       <form action="" method='post'>
         {% csrf_token %}
         {{form.as_p}}
