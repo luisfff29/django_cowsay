@@ -11,7 +11,7 @@ def index(request):
         if form.is_valid():
             data = form.cleaned_data
             form = TextInput()
-            if data['choose_animal'] == '-'*9:
+            if data['choose_animal'] == 'default':
                 result = subprocess.run(
                     ['cowsay'] + data['text'].split(), capture_output=True).stdout.decode()
             else:
